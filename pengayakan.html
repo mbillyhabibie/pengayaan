@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gojek Premium Fix</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap');
+  body{font-family:'Poppins',sans-serif}
+.page{display:none}.page.active{display:block; animation: pop.35s cubic-bezier(.34,1.56,.64,1)}
+  @keyframes pop{from{opacity:0; transform: translateY(10px) scale(.97)} to{opacity:1; transform: translateY(0) scale(1)}}
+</style>
+</head>
+<body class="bg-gray-100 flex justify-center">
+<div class="w-full max-w-[430px] bg-white min-h-screen relative pb-[90px] shadow-xl overflow-hidden">
+
+<!-- BERANDA CANTIK -->
+<div id="page-beranda" class="page active">
+  <div class="bg-[#00AA13] p-5 pt-7 pb-16 relative">
+    <div class="absolute -top-16 -right-16 w-48 h-48 bg-white/10 rounded-full blur-2xl"></div>
+    <div class="flex justify-between text-white relative"><span class="font-extrabold">gojek</span><div class="flex gap-3"><i class="bi bi-bell"></i><i class="bi bi-chat-dots"></i></div></div>
+    <div class="bg-white rounded-[20px] p-4 mt-4 shadow-xl relative">
+      <p class="text-[11px] font-bold text-gray-400">GOPAY • PLUS</p>
+      <h2 class="text-2xl font-extrabold">Rp 1.250.500</h2>
+      <div class="flex gap-2 mt-3"><button class="bg-black text-white px-4 py-1.5 rounded-full text-xs font-bold">Bayar</button><button class="bg-gray-100 px-4 py-1.5 rounded-full text-xs font-bold">Top Up</button><button class="bg-gray-100 px-4 py-1.5 rounded-full text-xs font-bold">QRIS</button></div>
+    </div>
+  </div>
+  <div class="px-4 -mt-8 relative">
+    <div class="bg-white rounded-[22px] p-5 shadow-[0_10px_30px_rgba(0,0,0,.08)] grid grid-cols-4 gap-4 text-center">
+      <div onclick="openPage('goride')" class="cursor-pointer active:scale-90 transition"><div class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 text-white rounded-[16px] flex items-center justify-center mx-auto text-xl shadow-lg shadow-green-200"><i class="bi bi-bicycle"></i></div><p class="text-[11px] font-bold mt-2">GoRide</p></div>
+      <div onclick="openPage('gocar')" class="cursor-pointer active:scale-90 transition"><div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-[16px] flex items-center justify-center mx-auto text-xl shadow-lg shadow-blue-200"><i class="bi bi-car-front"></i></div><p class="text-[11px] font-bold mt-2">GoCar</p></div>
+      <div onclick="openPage('gofood')" class="cursor-pointer active:scale-90 transition"><div class="w-14 h-14 bg-gradient-to-br from-red-400 to-orange-500 text-white rounded-[16px] flex items-center justify-center mx-auto text-xl shadow-lg shadow-red-200"><i class="bi bi-fire"></i></div><p class="text-[11px] font-bold mt-2">GoFood</p></div>
+      <div class="cursor-pointer active:scale-90 transition"><div class="w-14 h-14 bg-gray-100 rounded-[16px] flex items-center justify-center mx-auto text-xl"><i class="bi bi-box-seam"></i></div><p class="text-[11px] font-bold mt-2">GoSend</p></div>
+    </div>
+    <div onclick="openPage('promo')" class="mt-4 h-[150px] rounded-[20px] overflow-hidden relative cursor-pointer group"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"><div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent p-5 flex flex-col justify-center text-white"><span class="bg-white text-black text-[10px] font-bold px-2 py-1 rounded-full w-fit">PROMO</span><p class="font-extrabold text-lg mt-2 leading-tight">Diskon 60%<br>GoFood Hari Ini</p></div></div>
+  </div>
+</div>
+
+<!-- GOFOOD FIX CANTIK ADA PILIHAN -->
+<div id="page-gofood" class="page">
+  <div class="p-4 flex items-center gap-3 sticky top-0 bg-white/80 backdrop-blur-xl z-10"><i onclick="openPage('beranda')" class="bi bi-arrow-left w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"></i><h3 class="font-bold">GoFood Malang</h3></div>
+  <div class="p-4">
+    <div class="bg-gray-100 rounded-full px-4 py-3 flex gap-2"><i class="bi bi-search text-gray-400"></i><input class="bg-transparent w-full text-sm outline-none" placeholder="Cari makanan enak..."></div>
+    <div class="flex gap-2 mt-4 overflow-x-auto"><span class="bg-black text-white px-4 py-1.5 rounded-full text-xs font-bold">Semua</span><span class="bg-gray-100 px-4 py-1.5 rounded-full text-xs">Ayam</span><span class="bg-gray-100 px-4 py-1.5 rounded-full text-xs">Seblak</span><span class="bg-gray-100 px-4 py-1.5 rounded-full text-xs">Burger</span></div>
+    <div class="grid grid-cols-2 gap-3 mt-4">
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm border"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80&auto=format&fit=crop" class="h-28 w-full object-cover"><div class="p-3"><p class="font-bold text-sm">Ayam Geprek</p><p class="text-[11px] text-gray-400">⭐ 4.9 • 0.8km</p><p class="text-xs font-bold text-green-600 mt-1">Rp 15.000</p></div></div>
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm border"><img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=500&q=80&auto=format&fit=crop" class="h-28 w-full object-cover"><div class="p-3"><p class="font-bold text-sm">Burger King</p><p class="text-[11px] text-gray-400">⭐ 4.8 • 1.2km</p><p class="text-xs font-bold text-green-600 mt-1">Rp 25.000</p></div></div>
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm border"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&q=80&auto=format&fit=crop" class="h-28 w-full object-cover"><div class="p-3"><p class="font-bold text-sm">Seblak Jeletot</p><p class="text-[11px] text-gray-400">⭐ 4.7 • 0.5km</p><p class="text-xs font-bold text-green-600 mt-1">Rp 12.000</p></div></div>
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm border"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&q=80&auto=format&fit=crop" class="h-28 w-full object-cover"><div class="p-3"><p class="font-bold text-sm">Salad Buah</p><p class="text-[11px] text-gray-400">⭐ 5.0 • 2km</p><p class="text-xs font-bold text-green-600 mt-1">Rp 18.000</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- GORIDE FIX -->
+<div id="page-goride" class="page">
+  <div class="p-4 flex items-center gap-3 sticky top-0 bg-white/80 backdrop-blur-xl z-10"><i onclick="openPage('beranda')" class="bi bi-arrow-left w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"></i><h3 class="font-bold">GoRide</h3></div>
+  <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80&auto=format&fit=crop" class="w-full h-44 object-cover">
+  <div class="bg-white -mt-6 rounded-t-[24px] p-5 relative space-y-4">
+    <div class="bg-gray-50 rounded-2xl p-4"><p class="text-[10px] font-bold text-gray-400">JEMPUT • UIN MALANG</p><p class="font-bold text-sm">Jl. Gajayana No.50</p></div>
+    <div class="bg-gray-50 rounded-2xl p-4"><p class="text-[10px] font-bold text-gray-400">TUJUAN</p><input class="w-full bg-transparent font-bold text-sm outline-none" placeholder="Mau kemana hari ini?"></div>
+    <div class="grid grid-cols-3 gap-2"><div class="border-2 border-black bg-gray-50 rounded-xl p-3 text-center"><p class="font-bold text-sm">GoRide</p><p class="text-xs">Rp 12rb</p></div><div class="border rounded-xl p-3 text-center"><p class="font-bold text-sm">GoRide XL</p><p class="text-xs">Rp 15rb</p></div><div class="border rounded-xl p-3 text-center"><p class="font-bold text-sm">Hemat</p><p class="text-xs">Rp 10rb</p></div></div>
+    <button class="bg-black text-white w-full py-4 rounded-full font-bold">Cari Driver</button>
+  </div>
+</div>
+
+<div id="page-gocar" class="page">
+  <div class="p-4 flex items-center gap-3 sticky top-0 bg-white/80 backdrop-blur-xl z-10"><i onclick="openPage('beranda')" class="bi bi-arrow-left w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"></i><h3 class="font-bold">GoCar</h3></div>
+  <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80&auto=format&fit=crop" class="w-full h-44 object-cover">
+  <div class="bg-white -mt-6 rounded-t-[24px] p-5 space-y-3">
+    <div class="bg-gray-50 rounded-2xl p-4"><p class="font-bold text-sm">MTOS → Stasiun Malang</p><p class="text-xs text-gray-400">Estimasi 12 menit</p></div>
+    <div class="border-2 border-black rounded-xl p-4 flex justify-between bg-gray-50"><div><p class="font-bold text-sm">GoCar • Avanza</p><p class="text-xs text-gray-400">4 kursi • AC dingin</p></div><p class="font-bold">Rp 28rb</p></div>
+    <div class="border rounded-xl p-4 flex justify-between"><div><p class="font-bold text-sm">GoCar XL • Innova</p><p class="text-xs text-gray-400">6 kursi • Luas</p></div><p class="font-bold">Rp 45rb</p></div>
+    <button class="bg-black text-white w-full py-4 rounded-full font-bold">Pesan GoCar</button>
+  </div>
+</div>
+
+<div id="page-promo" class="page">
+  <div class="p-4 font-bold sticky top-0 bg-white z-10">Promo</div>
+  <div class="p-4 space-y-3"><div class="h-36 rounded-[18px] overflow-hidden relative"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=600&q=80&auto=format&fit=crop" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex items-end text-white"><div><p class="font-bold">Gratis Ongkir 20x</p><p class="text-xs">GoFood Malang</p></div></div></div><div class="bg-green-600 rounded-[18px] p-4 text-white"><p class="font-bold">Cashback 50% GoPay</p><p class="text-xs opacity-80">Pakai GoPay di Alfamart</p></div></div>
+</div>
+
+<div id="page-pesanan" class="page"><div class="p-4 font-bold sticky top-0 bg-white z-10">Pesanan</div><div class="p-4 space-y-3"><div class="bg-white border rounded-2xl p-4 flex gap-3"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&q=80&auto=format&fit=crop" class="w-16 h-16 rounded-xl object-cover"><div><p class="font-bold text-sm">Ayam Geprek Bensu</p><p class="text-xs text-gray-400">Selesai • Rp 32rb</p></div></div></div></div>
+<div id="page-profil" class="page"><div class="bg-black p-8 text-white text-center"><img src="https://i.pravatar.cc/100?img=11" class="w-20 h-20 rounded-full mx-auto object-cover"><h2 class="font-bold mt-3">Billy Saputra</h2><p class="text-xs opacity-60">Gojek Plus • Malang</p></div></div>
+
+<!-- BOTTOM NAV CANTIK -->
+<div class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-[380px] bg-black rounded-full flex justify-around py-2 px-2 z-50">
+  <button onclick="openPage('beranda')" class="bg-white text-black px-6 py-2.5 rounded-full font-bold text-sm flex gap-2"><i class="bi bi-house-fill"></i> Beranda</button>
+  <button onclick="openPage('promo')" class="text-white/60 p-2.5"><i class="bi bi-percent text-lg"></i></button>
+  <button onclick="openPage('pesanan')" class="text-white/60 p-2.5"><i class="bi bi-receipt text-lg"></i></button>
+  <button onclick="openPage('profil')" class="text-white/60 p-2.5"><i class="bi bi-person text-lg"></i></button>
+</div>
+
+</div>
+<script>
+function openPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+n).classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
